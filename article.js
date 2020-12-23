@@ -1,6 +1,4 @@
 
-import facebook.js
-
 function saveArticle(){
 	var f = new FormData();
 	  f.append("contentFormat","html");
