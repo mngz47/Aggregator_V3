@@ -3,7 +3,7 @@ function saveArticle(){
 	var f = new FormData();
 	  f.append("contentFormat","html");
 	  f.append("publishStatus", "public");
-	  f.append("tags": e('default_category').value);
+	  f.append("tags", e('default_category').value);
 	  //title, content
    var fields = e('parameters').getElementsByClassName('field');
 	   
