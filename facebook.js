@@ -3,8 +3,8 @@ function getAccessToken(){
 	var f = new FormData();
 	  
 	  f.append("grant_type","client_credentials");
-	  f.append("client_id", "client_id");
-	  f.append("client_secret": "client_secret");
+	  f.append("client_id", "838292889616021");
+	  f.append("client_secret": "eb485dec6fac405b62e666929f03d272");
 														       
   return sendformG('https://graph.facebook.com/oauth/access_token',f);
 }
@@ -16,5 +16,5 @@ function shareOnFacebook(ll,message){
 	  f.append("link", ll);
 	  f.append("access_token": getAccessToken());
 	  
-	  sendformG("https://graph.facebook.com/v5.0/" + "facebook_page_id" + "/feed",f);
+	  sendformG("https://graph.facebook.com/v5.0/" + "195349390839130" + "/feed",f);
 }
