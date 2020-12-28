@@ -29,7 +29,8 @@ function saveArticle(){
 	  f.append("Content-Type", "application/json"); 
 	            
 		//sending content to medium.com
-		//sending content to blogger.com		var gg = [];
+		//sending content to blogger.com		
+	var gg = [];
 	for(var rr=0;rr<e('action').getElementsByTagName('input').length;r++){
 		gg[gg.length] = sendformG(e('action').getElementsByTagName('input')[rr].value,f);
 	}
@@ -38,6 +39,7 @@ function saveArticle(){
 }
 
 function putAffLink(cc){
+	alert(cc);
 var max = 8;
 for (var aa=1;aa<max;aa++){
 	cc = cc.substring(0,cc.length/max*aa)+'<a href="'+e('aff_link').value+'" >'+cc.substring(cc.length/max*aa,cc.length/max*aa+10)+'</a>'+cc.substring(cc.length/max*aa+10,cc.length);
