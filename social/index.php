@@ -3,8 +3,10 @@
 
 include 'vendor/autoload.php';
 
+echo 'hello';
+
 # Some Symfony container aware class
-//...
+/*
 $message = new \MartinGeorgiev\SocialPost\Message($_POST['body']);
 
 if($container->get('social_post')->publish($message)){
@@ -12,5 +14,6 @@ if($container->get('social_post')->publish($message)){
 }else{
     echo 'failure';
 }
+*/
 
 ?>
