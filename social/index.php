@@ -1,6 +1,7 @@
-# Usually your app/AppKernel.php
 <?php
+# Usually your app/AppKernel.php
 
+include 'vendor/autoload.php';
 
 // ...
 class AppKernel extends Kernel
@@ -19,6 +20,11 @@ class AppKernel extends Kernel
 # Some Symfony container aware class
 //...
 $message = new \MartinGeorgiev\SocialPost\Message($_POST['body']);
-$container->get('social_post')->publish($message);
+
+if($container->get('social_post')->publish($message)){
+    echo 'success';
+}else{
+    echo 'failure';
+}
 
 ?>
