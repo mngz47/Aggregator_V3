@@ -7,7 +7,7 @@ include 'vendor/martin-georgiev/social-post-bundle/src/MartinGeorgiev/SocialPost
 
 # Some Symfony container aware class
 
-$message = new \MartinGeorgiev\SocialPost\Message($_POST['body']);
+$message = new Message($_POST['body']);
 
 echo 'received: '.$_POST['body'];
 
