@@ -1,9 +1,9 @@
 <?php
 # Usually your app/AppKernel.php
 
-include 'vendor/autoload.php';
+# include 'vendor/autoload.php';
 
-
+include 'vendor/martin-georgiev/social-post-bundle/src/MartinGeorgiev/SocialPost/SocialPostBundle.php';
 
 # Some Symfony container aware class
 
