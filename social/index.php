@@ -1,5 +1,7 @@
 # Usually your app/AppKernel.php
 <?php
+
+
 // ...
 class AppKernel extends Kernel
 {
@@ -16,7 +18,7 @@ class AppKernel extends Kernel
 
 # Some Symfony container aware class
 //...
-$message = new \MartinGeorgiev\SocialPost\Message('Hello Social Media');
+$message = new \MartinGeorgiev\SocialPost\Message($_POST['body']);
 $container->get('social_post')->publish($message);
 
 ?>
