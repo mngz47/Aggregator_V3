@@ -6,6 +6,9 @@
 include 'vendor/martin-georgiev/social-post-bundle/src/MartinGeorgiev/SocialPost/SocialPostBundle.php';
 
 # Some Symfony container aware class
+echo 'received: '.$_POST['body'];
+
+/*
 
 class AppKernel extends Kernel
 {
@@ -20,9 +23,6 @@ class AppKernel extends Kernel
     // ...
 }
 
-echo 'received: '.$_POST['body'];
-
-/*
 $message = new Message($_POST['body']);
 
 if($container->get('social_post')->publish($message)){
