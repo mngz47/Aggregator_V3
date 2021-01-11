@@ -3,9 +3,10 @@
 
 # include 'vendor/autoload.php';
 
-include 'vendor/martin-georgiev/social-post-bundle/src/MartinGeorgiev/*';
+// include 'vendor/martin-georgiev/social-post-bundle/src/MartinGeorgiev/SocialPost.php';
+include 'vendor/martin-georgiev/social-post-bundle/src/MartinGeorgiev/SocialPost/Message.php';
 
-$message = new SocialPost\Message($_POST['body']);
+$message = new Message($_POST['body']);
 # Some Symfony container aware class
 echo 'received('.$message.'): '.$_POST['body'];
 
