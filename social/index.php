@@ -3,9 +3,9 @@
 
 # include 'vendor/autoload.php';
 
-include 'vendor/martin-georgiev/social-post-bundle/src/MartinGeorgiev/SocialPostBundle/DependencyInjection/SocialPostExtensionTest.php';
+include 'vendor/martin-georgiev/social-post-bundle/src/MartinGeorgiev/*';
 
-$message = new Message($_POST['body']);
+$message = new SocialPost\Message($_POST['body']);
 # Some Symfony container aware class
 echo 'received('.$message.'): '.$_POST['body'];
 
