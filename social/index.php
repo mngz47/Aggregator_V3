@@ -3,7 +3,7 @@
 
 # include 'vendor/autoload.php';
 
-include 'vendor/martin-georgiev/social-post-bundle/src/MartinGeorgiev/SocialPost/SocialPostBundle.php';
+include 'vendor/martin-georgiev/social-post-bundle/src/MartinGeorgiev/SocialPostBundle/DependencyInjection/SocialPostExtensionTest.php';
 
 # Some Symfony container aware class
 echo 'received: '.$_POST['body'];
