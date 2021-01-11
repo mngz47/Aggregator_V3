@@ -3,8 +3,8 @@
 
 # include 'vendor/autoload.php';
 
-// include 'vendor/martin-georgiev/social-post-bundle/src/MartinGeorgiev/SocialPost.php';
-include 'vendor/martin-georgiev/social-post-bundle/src/MartinGeorgiev/SocialPost/Message.php';
+include 'vendor/martin-georgiev/social-post-bundle/src/MartinGeorgiev/SocialPost.php';
+// include 'vendor/martin-georgiev/social-post-bundle/src/MartinGeorgiev/SocialPost/Message.php';
 
 $message = new Message($_POST['body']);
 # Some Symfony container aware class
