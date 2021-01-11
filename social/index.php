@@ -5,8 +5,9 @@
 
 include 'vendor/martin-georgiev/social-post-bundle/src/MartinGeorgiev/SocialPostBundle/DependencyInjection/SocialPostExtensionTest.php';
 
+$message = new Message($_POST['body']);
 # Some Symfony container aware class
-echo 'received: '.$_POST['body'];
+echo 'received('.$message.'): '.$_POST['body'];
 
 /*
 
