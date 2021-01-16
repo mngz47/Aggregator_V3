@@ -83,7 +83,7 @@ for (var aa=1;aa<max;aa++){
 	return cc;
 }
 
-function sendformG(url,form,gg){
+function sendformG(url,form){
 var req = new XMLHttpRequest();
 req.open("POST",url,true);
 req.send(form);
