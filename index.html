@@ -117,7 +117,7 @@ addDestination(destiny[a]);
   <legend>Social</legend>
   
   <form method=post action=social/index.php >
-   <textarea name=body ></textarea> 
+   <textarea name=body onblur="if(confirm('Send on Facebook')){ shareOnFacebook('https://www.productlists.co.za',this.value);} " ></textarea> 
    <button>Send</button>
   </form>
   
