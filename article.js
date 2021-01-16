@@ -34,12 +34,12 @@ function saveArticle(){
 		//sending content to medium.com
 		//sending content to blogger.com		
 		
-		var gg = [];
+	
 	for(var rr=0;rr<e('action').getElementsByTagName('input').length;rr++){
-		gg[gg.length] = sendformG(e('action').getElementsByTagName('input')[rr].value,f);
+		sendformG(e('action').getElementsByTagName('input')[rr].value,f);
 	}
-	alert('Destination Response: '+gg.toString);
-	shareOnFacebook(gg.toString,values[content_index].substring(0,100));
+	
+	// shareOnFacebook(gg.toString,values[content_index].substring(0,100));
 }
 
 
@@ -52,30 +52,27 @@ function saveArticle_2(url,index){
 	   var content_index;
 	   
 	   for(var a=0;a<fields.length;a++){
-		   var vv;
 		   if(fields[a].getElementsByTagName('input')[0].value=='content'){
 			 content_index = a;
-			 vv =  putAffLink(getName(fields[a].getElementsByTagName('input')[3].value.split(','),index).value);
+			 f.append(fields[a].getElementsByTagName('input')[0].value,
+			     putAffLink(getName(fields[a].getElementsByTagName('input')[3].value.split(','),index).value));   
 		   }else{
-			 vv =  getName(fields[a].getElementsByTagName('input')[3].value.split(','),index).value;
-		   }  
-		   f.append(fields[a].getElementsByTagName('input')[0].value,
-			   vv );   
+			 f.append(fields[a].getElementsByTagName('input')[0].value,
+			     getName(fields[a].getElementsByTagName('input')[3].value.split(','),index).value);  
+		   }    
 	   }   
 		
 
 		//sending content to medium.com
 		//sending content to blogger.com		
 		
-	var gg = [];
 	for(var rr=0;rr<e('action').getElementsByTagName('input').length;rr++){
-		gg[gg.length] = sendformG(e('action').getElementsByTagName('input')[rr].value,f);
+		sendformG(e('action').getElementsByTagName('input')[rr].value,f);
 	}
-	alert('Destination Response: '+gg.toString);
-	shareOnFacebook(gg.toString,getName(fields[content_index].getElementsByTagName('input')[3].value.split(','),index).value.substring(0,100));		
+
+//	shareOnFacebook('article_url',getName(fields[content_index].getElementsByTagName('input')[3].value.split(','),index).value.substring(0,100));		
     
 }
-
 
 function putAffLink(cc){
 var max = 8;
@@ -86,13 +83,14 @@ for (var aa=1;aa<max;aa++){
 	return cc;
 }
 
-function sendformG(url,form){
+function sendformG(url,form,gg){
 var req = new XMLHttpRequest();
 req.open("POST",url,true);
 req.send(form);
 
 req.onload = function(){
 alert(req.responseText);
+	
 };
 return req.responseText;
 }
