@@ -52,14 +52,15 @@ function saveArticle_2(url,index){
 	   var content_index;
 	   
 	   for(var a=0;a<fields.length;a++){
+		   var vv;
 		   if(fields[a].getElementsByTagName('input')[0].value=='content'){
 			 content_index = a;
-			 f.append(fields[a].getElementsByTagName('input')[0].value,
-			     putAffLink(getName(fields[a].getElementsByTagName('input')[3].value.split(','),index).value));   
+			 vv =  putAffLink(getName(fields[a].getElementsByTagName('input')[3].value.split(','),index).value);
 		   }else{
-			 f.append(fields[a].getElementsByTagName('input')[0].value,
-			     getName(fields[a].getElementsByTagName('input')[3].value.split(','),index).value);  
-		   }    
+			 vv =  getName(fields[a].getElementsByTagName('input')[3].value.split(','),index).value;
+		   }  
+		   f.append(fields[a].getElementsByTagName('input')[0].value,
+			   vv );   
 	   }   
 		
 
