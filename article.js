@@ -17,6 +17,9 @@ function saveArticle(){
 	thirdparty(f);
 	//title, content
   
+	f.append('section',e('default_category').value);
+	//f.append('category',e('default_category').value);
+	
    var fields = e('parameters').getElementsByClassName('field');
    var vv;
    var content_index;
