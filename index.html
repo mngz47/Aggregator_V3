@@ -119,7 +119,7 @@ addDestination(destiny[a]);
   <legend>Social</legend>
   
   <form method=post action=social/index.php >
-   <textarea name=body onblur="if(confirm('Send on Facebook')){ shareOnFacebook('https://www.productlists.co.za',this.value);} " ></textarea> 
+   <textarea name=body onblur="if(confirm('Send on Facebook')){ shareOnFacebook('https://productlists-columns.herokuapp.com',this.value);} " ></textarea> 
    <button>Send</button>
   </form>
   
@@ -169,7 +169,7 @@ function getUrlText(url){
 var f = new FormData();
 f.append('URL',url);
 
-var res = sendform_2('feature/aggregation/lite/gettext.php',f);
+var res = sendform_2('gettext.php',f);
 res.onload = function(){
 var text = res.responseText;
   
