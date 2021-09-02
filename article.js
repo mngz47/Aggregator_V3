@@ -18,7 +18,7 @@ function saveArticle(){
 	//title, content
   
 	f.append('section',e('default_category').value);
-	//f.append('category',e('default_category').value);
+	f.append('date_added',getFormatedDate());
 	
    var fields = e('parameters').getElementsByClassName('field');
    var vv;
@@ -50,7 +50,10 @@ function saveArticle_2(url,index){
     var f = new FormData();
 	   thirdparty(f);
     // f.append('url',url.value); 
-	   
+	
+	f.append('section',e('default_category').value);
+	f.append('date_added',getFormatedDate());   
+	
 	   var fields = e('parameters').getElementsByClassName('field');
 	   var content_index;
 	   
