@@ -80,7 +80,7 @@ e('parameters').innerHTML +=
 'tags<input type=text value="'+(tags?tags:'')+'" /><br>'+
 'indicators<input type=text value="'+(indicators?indicators:'')+'" /><br>'+
 'size<input type=number value="'+(size?size:'')+'" /><br>'+
-'long<input type=checkbox /><br>'+
+'long<input type=checkbox '+(field_name=="content"?"checked=true":"")+' /><br>'+
 '</div>';
 
 }
