@@ -135,10 +135,17 @@ var external_urls = [];
 
 var layer_urls = [];
 
+var d_categories = [];	
+	
 function layerURL(text){
 
 var links = text.split('<a ');
 
+var d_category = e("default_category").value.replace(",","");
+    d_category = d_category.replace("and","");
+	
+	d_categories = d_category.split(" ");	
+	
 for(var a=0;a<links.length;a++){
 
 var narrow = links[a].substring(0,400);
@@ -149,8 +156,8 @@ var hh = narrow.substring(begin,narrow.indexOf('"',begin));
  
  // e('log').innerHTML += '('+hh+') link<br>';
    
-	
-	if(narrow.toLowerCase().includes(e("default_category").value.toLowerCase())){
+	for(var b=0;b<d_categories.length;b++){
+		if(narrow.toLowerCase().includes(d_categories[b].toLowerCase())){
 	
 if(layer_urls.indexOf(hh)==-1 && external_urls.indexOf(hh)==-1){
 if(hh.includes(e('url').value)){
@@ -161,11 +168,11 @@ layer_urls[layer_urls.length] = e('url').value+hh;
 }else{
 external_urls[external_urls.length] = hh;
 }
-}	
-		
+}		
 	}else{
 		 e('log').innerHTML += '('+hh+')layer Url(Not Target Category)<br>';
-	}
+	}	
+	}	
 }
 }
 
