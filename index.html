@@ -40,9 +40,11 @@ break;
 <span>Category</span>
 <input type=text id=default_category value=food />
 <br><br>
+	<div style="display:none;" >
 <span>Tags</span>
 <textarea id=default_tags >food,pos,restaurant,digital menu</textarea>
 <br><br>
+	</div>
 <span>Aff Link Merge</span>
 <input value="https://bit.ly/3f06Guc" type=text name=aff_link id=aff_link />
 
@@ -147,7 +149,10 @@ var hh = narrow.substring(begin,narrow.indexOf('"',begin));
  
  // e('log').innerHTML += '('+hh+') link<br>';
    
-  if(layer_urls.indexOf(hh)==-1 && external_urls.indexOf(hh)==-1){
+	
+	if(narrow.toLowerCase().includes(e("default_category").value.toLowerCase())){
+	
+if(layer_urls.indexOf(hh)==-1 && external_urls.indexOf(hh)==-1){
 if(hh.includes(e('url').value)){
 layer_urls[layer_urls.length] = hh;
 }else if(hh.indexOf('/')==0){
@@ -155,9 +160,12 @@ layer_urls[layer_urls.length] = hh;
 layer_urls[layer_urls.length] = e('url').value+hh; 
 }else{
 external_urls[external_urls.length] = hh;
-
 }
-} 
+}	
+		
+	}else{
+		 e('log').innerHTML += '('+hh+')layer Url(Not Target Category)<br>';
+	}
 }
 }
 
