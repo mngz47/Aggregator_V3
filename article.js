@@ -12,6 +12,26 @@ function thirdparty(f){
 	  f.append("Content-Type", "application/json"); 
 }
 
+
+function paraphrase(vv){
+	
+	const data = JSON.stringify({
+	"language": "en",
+	"strength": 3,
+	"text": vv
+		});
+
+const xhr = new XMLHttpRequest();
+xhr.withCredentials = true;
+xhr.open("POST", "https://rewriter-paraphraser-text-changer-multi-language.p.rapidapi.com/rewrite");
+xhr.setRequestHeader("content-type", "application/json");
+xhr.setRequestHeader("x-rapidapi-host", "rewriter-paraphraser-text-changer-multi-language.p.rapidapi.com");
+xhr.setRequestHeader("x-rapidapi-key", "f4d041c051msh25be51a74caa34bp14fd74jsn556f558ca5da");
+xhr.send(data);
+	
+	return xhr;
+}
+
 function saveArticle(){
 	var f = new FormData();
 	thirdparty(f);
@@ -26,8 +46,23 @@ function saveArticle(){
 	 
 	   for(var a=0;a<fields.length;a++){
 		   if(fields[a].getElementsByTagName('input')[0].value=='content'){
+			  
+			   var para_res = paraphrase(vv);
+			   
+			   para_res.readystatechange = function(){
+				   if (para_res.readyState === para_res.DONE) {
+					vv = para_res.responseText;
+				   }
+			   };
+			   
 			   vv = putAffLink(values[a]);
 			   content_index = a;
+		   }else if(fields[a].getElementsByTagName('input')[0].value=='title'){
+		   	
+			   vv = values[a].match(/>.*</);
+			   vv = vv.replace('>','');
+			   vv = vv.replace('<','');
+
 		   }else{
 			   vv = values[a];
 		   }
