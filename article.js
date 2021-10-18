@@ -51,7 +51,9 @@ function saveArticle(){
 			   
 			   para_res.readystatechange = function(){
 				   if (para_res.readyState === para_res.DONE) {
-					vv = para_res.responseText;
+					   vv = para_res.responseText;
+					   e('log').innerHTML += '<br><textarea>'+vv+'</textarea>(PARAPHASED)<br>';
+				 
 				   }
 			   };
 			   
