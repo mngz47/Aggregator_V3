@@ -57,14 +57,11 @@ function saveArticle(){
 			   
 			   vv = putAffLink(values[a]);
 			   content_index = a;
-		   }else if(fields[a].getElementsByTagName('input')[0].value=='title'){
-		   	
+		   }else{
+			   
 			   vv = values[a].match(/>.*</);
 			   vv = vv.replace('>','');
 			   vv = vv.replace('<','');
-
-		   }else{
-			   vv = values[a];
 		   }
 		       f.append(fields[a].getElementsByTagName('input')[0].value,vv);
 	   }
