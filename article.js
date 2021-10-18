@@ -62,7 +62,7 @@ function saveArticle(){
 		   }else{
 			   
 			   var vvv = values[a].match(/>.*</);
-			   vv = vvv.toString().substring(1, -1);
+			   vv = vvv.toString().substring(1, vvv.length-1);
 			   
 		   }
 		       f.append(fields[a].getElementsByTagName('input')[0].value,vv);
