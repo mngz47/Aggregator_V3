@@ -124,7 +124,7 @@ var max = 8;
 for (var aa=1;aa<max;aa++){
 	cc = cc.substring(0,cc.length/max*aa)+'<a href="'+e('aff_link').value+'" >'+cc.substring(cc.length/max*aa,cc.length/max*aa+10)+'</a>'+cc.substring(cc.length/max*aa+10,cc.length);
 }
-	alert(cc);
+	//alert(cc);
 	return cc;
 }
 
@@ -134,8 +134,7 @@ req.open("POST",url,true);
 req.send(form);
 
 req.onload = function(){
-alert(req.responseText);
-	
+//alert(req.responseText);	
 };
 return req.responseText;
 }
