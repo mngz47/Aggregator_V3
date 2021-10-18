@@ -62,8 +62,8 @@ function saveArticle(){
 		   }else{
 			   
 			   vv = values[a].match(/>.*</);
-			   vv = vv.replace('>','');
-			   vv = vv.replace('<','');
+			   vv = vv.replace(">","");
+			   vv = vv.replace("<","");
 		   }
 		       f.append(fields[a].getElementsByTagName('input')[0].value,vv);
 	   }
