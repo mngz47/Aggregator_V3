@@ -61,9 +61,10 @@ function saveArticle(){
 			   content_index = a;
 		   }else{
 			   
-			   vv = values[a].match(/>.*</);
-			   //vv = vv.replace(">","");
-			   //vv = vv.replace("<","");
+			   var vvv = values[a].match(/>.*</);
+			   vvv = vvv.replace(">","");
+			   vv = vvv.replace("<","");
+			   
 		   }
 		       f.append(fields[a].getElementsByTagName('input')[0].value,vv);
 	   }
