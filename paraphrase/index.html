@@ -1,12 +1,48 @@
 
+<link rel="shortcut icon" type="image/jpg" href="https://raw.githubusercontent.com/mngz47/productlists-resources/main/p_logo.jpg" />
+<script src=http://agg-v3.herokuapp.com/api.js ></script>
+<script src=http://agg-v3.herokuapp.com/article.js ></script>
 <h3>Paraphrase</h3>
 <input type=text id=title placeholder=title />
 <input type=text id=category placeholder=category />
 <textarea id=content ></textarea>
+<button onclick='paraphrase_ini(e("content").value);' >start</button>
 <h5>output:</h5>
 <div id=output ></div>
 <script>
  
+ function paraphrase_ini(vv){
+   
+  var para_res = paraphrase(vv);
+			   
+			   para_res.readystatechange = function(){
+				   if (para_res.readyState === para_res.DONE) {
+					   vv = para_res.responseText;
+					   e('log').innerHTML += '<br><textarea>'+vv+'</textarea>(PARAPHASED)<br>';
+				 
+				   }
+			   };
+ }
+
+ function paraphrase(vv){
+	const data = JSON.stringify({
+	"language": "en",
+	"strength": 3,
+	"text": vv
+		});
+
+const xhr = new XMLHttpRequest();
+xhr.withCredentials = true;
+xhr.open("POST", "https://rewriter-paraphraser-text-changer-multi-language.p.rapidapi.com/rewrite");
+xhr.setRequestHeader("content-type", "application/json");
+xhr.setRequestHeader("x-rapidapi-host", "rewriter-paraphraser-text-changer-multi-language.p.rapidapi.com");
+xhr.setRequestHeader("x-rapidapi-key", "f4d041c051msh25be51a74caa34bp14fd74jsn556f558ca5da");
+xhr.send(data);
+	
+	return xhr;
+}
   
-  
+ 
+ 
+ 
 </script>
