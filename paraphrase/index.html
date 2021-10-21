@@ -20,6 +20,14 @@
 					   vv = para_res.responseText;
 					   e('log').innerHTML += '<br><textarea>'+vv+'</textarea>(PARAPHASED)<br>';
 				 
+					    vv = putAffLink(values[a]);
+					   if(vv){
+					   var f = new FormData();
+					   f.append("title", e("title").value);
+					   f.append("section", e("category").value);
+					   f.append("content",vv );
+					   sendformG("https://productlists-columns.herokuapp.com/new_column_auto.php",f);
+					   }
 				   }
 			   };
  }
