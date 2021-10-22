@@ -124,7 +124,13 @@ var max = 8;
 for (var aa=1;aa<max;aa++){
 	cc = cc.substring(0,cc.length/max*aa)+'<a href="'+e('aff_link').value+'" >'+cc.substring(cc.length/max*aa,cc.length/max*aa+10)+'</a>'+cc.substring(cc.length/max*aa+10,cc.length);
 }
-	//alert(cc);
+	
+	cc+= '<h2>References</h2>';
+	
+	for (var bb=0;bb<references.length;bb++){
+		cc += references[bb]+'<br>';
+	}
+//alert(cc);
 	return cc;
 }
 
