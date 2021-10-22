@@ -58,6 +58,7 @@ function saveArticle(){
 			   };
 			   
 			   vv = putAffLink(values[a]);
+			   
 			   content_index = a;
 		   }else{
 			   
@@ -78,7 +79,13 @@ function saveArticle(){
 		
 	
 	for(var rr=0;rr<e('action').getElementsByTagName('input').length;rr++){
-		sendformG(e('action').getElementsByTagName('input')[rr].value,f);
+		
+		var response = sendformG(e('action').getElementsByTagName('input')[rr].value,f);
+		
+		if(response.split(',')[0]=='success'){
+		shareOnFacebook_2(response.split(',')[1],vv.match(/\w{50,10}/));	
+		}
+		
 	}
 	
 	// shareOnFacebook(gg.toString,values[content_index].substring(0,100));
