@@ -1,37 +1,34 @@
 <?php
-# Usually your app/AppKernel.php
 
-# include 'vendor/autoload.php';
 
-include 'vendor/martin-georgiev/social-post-bundle/src/MartinGeorgiev/SocialPost.php';
-// include 'vendor/martin-georgiev/social-post-bundle/src/MartinGeorgiev/SocialPost/Message.php';
+if($POST['page_id'] && $POST['access_token'] && $POST['content'] && $POST['link']){
+    
+$curl = curl_init();
 
-$message = new Message($_POST['body']);
-# Some Symfony container aware class
-echo 'received('.$message.'): '.$_POST['body'];
+curl_setopt_array($curl, [
+	CURLOPT_URL => "https://graph.facebook.com/".$POST['page_id']."/feed",
+	CURLOPT_RETURNTRANSFER => true,
+	CURLOPT_FOLLOWLOCATION => true,
+	CURLOPT_ENCODING => "",
+	CURLOPT_MAXREDIRS => 10,
+	CURLOPT_TIMEOUT => 30,
+	CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+	CURLOPT_CUSTOMREQUEST => "POST",
+	CURLOPT_POSTFIELDS => "{\r
+    \"message\": "+ $POST['content'] +",\r
+    \"link\": "+ $POST['link'] +",\r
+    \"access_token\": "+ $POST['access_token'] +"\r
+}",
+	CURLOPT_HTTPHEADER => [
+		"content-type: application/json"
+	],
+]);
 
-/*
-
-class AppKernel extends Kernel
-{
-    public function registerBundles()
-    {
-        $bundles = [
-            // ...
-            new \MartinGeorgiev\SocialPostBundle\SocialPostBundle(),
-        ];
-        return $bundles;
-    }
-    // ...
+$response = curl_exec($curl);
+    
+    
 }
 
-$message = new Message($_POST['body']);
 
-if($container->get('social_post')->publish($message)){
-    echo 'success';
-}else{
-    echo 'failure';
-}
-*/
 
 ?>
