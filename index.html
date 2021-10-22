@@ -93,6 +93,8 @@ e('parameters').innerHTML +=
 <div id=data_source ></div>
 <a href=# onclick="addDataSource('');return false;"  style="float:right;" >add_data_source</a>
 <script>
+var data_source_index = 0;	
+	
 var data_sources = 
 [
 "https://www.plr.me",
@@ -162,6 +164,8 @@ var layer_urls = [];
 
 var d_categories = [];	
 	
+var references = [];
+	
 function layerURL(text){
 
 var links = text.split('<a ');
@@ -228,11 +232,17 @@ if(!stop && ind<layer_urls.length){
  
  getUrlText(layer_urls[ind]);
  
-}else if(layer_urls.length>0){
-	e('aff_link').value = layer_urls[layer_urls.length-1];
-	getUrlText((layer_urls.length>0?layer_urls[ind]:e('url').value));
-}
+}else if(layer_urls.length>=ind){ //move into nested link
 	
+	references[layer_urls.length-1] = layer_urls[layer_urls.length-1];
+	getUrlText((layer_urls.length>0?layer_urls[ind]:e('url').value));
+
+}else if(data_source_index<e('data_source').getElementsByTagName('input').length){ //move to next datasource
+	
+	getUrlText(e('data_source').getElementsByTagName('input')[data_source_index]);
+	data_source_index+=1;
+	
+}	
 };
 }
 </script>
