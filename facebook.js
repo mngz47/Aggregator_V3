@@ -19,3 +19,17 @@ function shareOnFacebook(ll,message){
 	  
 	  sendformG("https://graph.facebook.com/v5.0/" + "195349390839130" + "/feed",f);
 }
+
+ //https://graph.facebook.com/{your-user-id}/accounts?access_token={user-access-token}
+		 
+ function shareOnFacebook_2(ll,message){
+		
+			var f = new FormData();
+			f.append('page_id', (e('facebook_page_id').value?e('facebook_page_id').value:'195349390839130') );
+			f.append('access_token', (e('facebook_access_token').value?e('facebook_access_token').value:getAccessToken()) );
+			f.append('content', message);
+			f.append('link', ll);
+			sendform('social/index.php',f);
+  } 
+		 
+
