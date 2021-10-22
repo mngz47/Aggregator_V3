@@ -87,6 +87,31 @@ e('parameters').innerHTML +=
 
 </script>
 
+<fieldset>
+<legend>Data Sources</legend>
+
+<div id=data_source ></div>
+<a href=# onclick="addDataSource('');return false;"  style="float:right;" >add_data_source</a>
+<script>
+var data_sources = 
+[
+"https://www.plr.me",
+"https://www.killerplrarticles.com/categories"
+]
+
+function addDataSource(action){
+e('data_source').innerHTML += '<div>'+
+'<a href=# onclick="this.parentNode.remove();return false;" style="float:right;" >XX</a>'+
+'<input type=text value="'+action+'" />'+
+'</div>';
+}
+
+for(var a=0;a<data_sources.length;a++){
+addDataSource(data_sources[a]);
+}
+</script>
+
+</fieldset>
 
 <fieldset>
 <legend>Actions</legend>
