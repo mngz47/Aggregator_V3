@@ -145,12 +145,29 @@ addDestination(destiny[a]);
 </fieldset>
 
  <fieldset>
-  <legend>Social</legend>
+  <legend>Share On Facebook</legend>
   
-  <form method=post action=social/index.php >
-   <textarea name=body onblur="if(confirm('Send on Facebook')){ shareOnFacebook('https://productlists-columns.herokuapp.com',this.value);} " ></textarea> 
-   <button>Send</button>
-  </form>
+	 <script>
+		 
+		 //https://graph.facebook.com/{your-user-id}/accounts?access_token={user-access-token}
+		 
+		function shareOnFacebook(page_id,access_token,content,link){
+		
+			var f = new FormData();
+			f.append('page_id', page_id);
+			f.append('access_token', access_token);
+			f.append('content', content);
+			f.append('link', link);
+			sendform('social/index.php',f);
+			
+		} 
+		 
+	 </script>
+	 
+	<div>
+		<input id=facebook_page_id placeholder="page id" />
+		<input id=facebook_access_token placeholder="access token" />
+	 </div>
   
  </fieldset>
 
