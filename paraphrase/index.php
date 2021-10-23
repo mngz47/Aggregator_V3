@@ -16,7 +16,7 @@ if($_POST['content']){
               'lang'=>'en');
 	
 curl_setopt_array($curl, [
-	CURLOPT_URL => "https://www.prepostseo.com/apis/checkparaphrase",
+	CURLOPT_URL => "https://www.prepostseo.com/apis/checkparaphrase?query=".$_POST['content'],
 	CURLOPT_RETURNTRANSFER => true,
 	CURLOPT_FOLLOWLOCATION => true,
 	CURLOPT_ENCODING => "",
