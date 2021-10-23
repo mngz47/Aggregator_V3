@@ -12,7 +12,7 @@ if($_POST['content']){
   $curl = curl_init();
 
 curl_setopt_array($curl, [
-	CURLOPT_URL => "https://paraphrasing-tool1.p.rapidapi.com/api/rewrite",
+	CURLOPT_URL => "https://www.prepostseo.com/apis/checkparaphrase",
 	CURLOPT_RETURNTRANSFER => true,
 	CURLOPT_FOLLOWLOCATION => true,
 	CURLOPT_ENCODING => "",
@@ -20,15 +20,11 @@ curl_setopt_array($curl, [
 	CURLOPT_TIMEOUT => 30,
 	CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
 	CURLOPT_CUSTOMREQUEST => "POST",
-	CURLOPT_POSTFIELDS => "{\r
-    \"sourceText\": ". $_POST['content'] ."\r
-}",
-	CURLOPT_HTTPHEADER => [
-		"content-type: application/json",
-		"x-rapidapi-host: paraphrasing-tool1.p.rapidapi.com",
-		"x-rapidapi-key: f4d041c051msh25be51a74caa34bp14fd74jsn556f558ca5da"
-	],
-]);
+	CURLOPT_POSTFIELDS => "{".
+     "query: ". $_POST['content'] .",".
+   "key=0a8d4acb24bbfce6de654fb18e2c8ac1,".
+   "lang=en".
+"}"]);
 
 $response = curl_exec($curl);
 $err = curl_error($curl);
