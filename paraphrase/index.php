@@ -11,6 +11,10 @@ if($_POST['content']){
   
   $curl = curl_init();
 
+	$data = array('query'=>$_POST['content'],
+              'key'=>'0a8d4acb24bbfce6de654fb18e2c8ac1',
+              'lang'=>'en');
+	
 curl_setopt_array($curl, [
 	CURLOPT_URL => "https://www.prepostseo.com/apis/checkparaphrase",
 	CURLOPT_RETURNTRANSFER => true,
@@ -20,12 +24,10 @@ curl_setopt_array($curl, [
 	CURLOPT_TIMEOUT => 30,
 	CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
 	CURLOPT_CUSTOMREQUEST => "POST",
-	CURLOPT_POSTFIELDS => "{".
-     "query: ". $_POST['content'] .",".
-   "key=0a8d4acb24bbfce6de654fb18e2c8ac1,".
-   "lang=en".
-"}"]);
+	CURLOPT_POSTFIELDS => $data]);
 
+	
+	
 $response = curl_exec($curl);
 $err = curl_error($curl);
 
