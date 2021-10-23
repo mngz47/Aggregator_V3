@@ -21,7 +21,7 @@ curl_setopt_array($curl, [
 	CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
 	CURLOPT_CUSTOMREQUEST => "POST",
 	CURLOPT_POSTFIELDS => "{\r
-    \"sourceText\": "+ $_POST['content'] +"\r
+    \"sourceText\": ". $_POST['content'] ."\r
 }",
 	CURLOPT_HTTPHEADER => [
 		"content-type: application/json",
