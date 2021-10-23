@@ -11,8 +11,9 @@ if($_POST['content']){
   
   $curl = curl_init();
 
-	$data = array('query'=>''.$_POST['content'],
-              'key'=>'0a8d4acb24bbfce6de654fb18e2c8ac1',
+	$data = array(
+		'key'=>'0a8d4acb24bbfce6de654fb18e2c8ac1',
+	       'query'=> $_POST['content'],
               'lang'=>'en');
 	
 curl_setopt_array($curl, [
