@@ -3,7 +3,11 @@
 
 <?php
 
+$response = '';
+
 if($POST['content']){
+	
+	echo '<p>content recieved</p>';
   
   $curl = curl_init();
 
